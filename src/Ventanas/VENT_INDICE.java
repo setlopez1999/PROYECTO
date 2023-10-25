@@ -4,6 +4,8 @@
  */
 package Ventanas;
 
+import Entidades.BIBLIIOTECA;
+
 /**
  *
  * @author ESTUDIANTE
@@ -13,8 +15,12 @@ public class VENT_INDICE extends javax.swing.JFrame {
     /**
      * Creates new form VENT_INDICE
      */
+    BIBLIIOTECA biblioteca;
+    
     public VENT_INDICE() {
         initComponents();
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     /**

@@ -1,8 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Ventanas;
+
+import Entidades.Tema;
+import Entidades.Usuario;
+import java.awt.Color;
+import java.util.List;
+import javax.swing.JLabel;
 
 /**
  *
@@ -13,12 +15,33 @@ public class VENT_PRINCIPAL extends javax.swing.JFrame {
     /**
      * Creates new form VENT_PRINCIPAL
      */
-    public VENT_PRINCIPAL() {
+    VENT_LOGIN login;
+    Usuario usuarioActual;
+    List<Tema> temas;
+    int x,y;
+    
+    public VENT_PRINCIPAL(Usuario usuarioActual,VENT_LOGIN login) {
         initComponents();
+        this.usuarioActual = usuarioActual;
+        //this.temas = usuarioActual.
+        this.login = login;
         this.setVisible(true);
         this.setLocationRelativeTo(null);
+        panelAjustes.setVisible(false);
     }
-
+    
+    public void Salir(){
+        this.dispose();
+        this.login.setVisible(true);
+    }
+    public void Mousedentro(JLabel e){
+        e.setBackground(new java.awt.Color(100, 50, 100, 100));
+        repaint();
+    }
+    public void Mousefuera(JLabel e){
+        e.setBackground(new java.awt.Color(100, 50, 100, 0));
+        repaint();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,90 +52,698 @@ public class VENT_PRINCIPAL extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        Salir = new javax.swing.JLabel();
+        TituloFavorito1 = new javax.swing.JLabel();
+        TituloUsuario = new javax.swing.JLabel();
+        TituloUsuario2 = new javax.swing.JLabel();
+        panelBarra = new javax.swing.JPanel();
+        btnCerrar = new javax.swing.JLabel();
+        btnFav1 = new javax.swing.JLabel();
+        btnAcerca = new javax.swing.JLabel();
+        btnFav2 = new javax.swing.JLabel();
+        btnFav3 = new javax.swing.JLabel();
+        btnFav4 = new javax.swing.JLabel();
+        btnFav5 = new javax.swing.JLabel();
+        panelDezlisante = new javax.swing.JPanel();
+        txtIndice = new javax.swing.JLabel();
+        btnSimulacion = new javax.swing.JLabel();
+        btnGlosario = new javax.swing.JLabel();
+        btnInicio = new javax.swing.JLabel();
+        btnTemas = new javax.swing.JLabel();
+        btnAjustes = new javax.swing.JLabel();
+        panelAjustes = new javax.swing.JPanel();
+        btnFav18 = new javax.swing.JLabel();
+        btnFav19 = new javax.swing.JLabel();
+        btnFav20 = new javax.swing.JLabel();
+        btnFav21 = new javax.swing.JLabel();
+        btnEliminarCuenta = new javax.swing.JLabel();
+        panelInicio = new javax.swing.JPanel();
+        btnFav6 = new javax.swing.JLabel();
+        btnFav7 = new javax.swing.JLabel();
+        btnFav8 = new javax.swing.JLabel();
+        btnFav9 = new javax.swing.JLabel();
+        btnFav10 = new javax.swing.JLabel();
+        btnFav11 = new javax.swing.JLabel();
+        TituloUsuario3 = new javax.swing.JLabel();
+        TituloUsuario4 = new javax.swing.JLabel();
+        Fondo = new javax.swing.JLabel();
+        PanelTemas = new javax.swing.JPanel();
+        PanelIndice = new javax.swing.JPanel();
+        PanelGlosario = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("INDICE");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 180, 40));
+        Salir.setBackground(new java.awt.Color(100,50,100,0));
+        Salir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Salir.setForeground(new java.awt.Color(255, 255, 255));
+        Salir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cerrar-sesion.png"))); // NOI18N
+        Salir.setText("SALIR");
+        Salir.setOpaque(true);
+        Salir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                SalirMouseExited(evt);
+            }
+        });
+        jPanel1.add(Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 90, 40));
 
-        jButton4.setText("AJUSTES");
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 190, 40));
+        TituloFavorito1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        TituloFavorito1.setForeground(new java.awt.Color(255, 255, 255));
+        TituloFavorito1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TituloFavorito1.setText("USER");
+        jPanel1.add(TituloFavorito1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 190, 30));
 
-        jButton5.setText("AJUSTES");
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 190, 40));
+        TituloUsuario.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        TituloUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        TituloUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TituloUsuario.setText("FAVORITOS");
+        jPanel1.add(TituloUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 190, 30));
 
-        jButton6.setText("AJUSTES");
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 190, 40));
+        TituloUsuario2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        TituloUsuario2.setForeground(new java.awt.Color(255, 255, 255));
+        TituloUsuario2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TituloUsuario2.setText("CAPACITACIÓN TRIBUTARIOS PARA MICROEMPRENDEDORES");
+        jPanel1.add(TituloUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 650, 490, 20));
 
-        jButton7.setText("AJUSTES");
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 190, 40));
+        panelBarra.setOpaque(false);
+        panelBarra.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                panelBarraMouseDragged(evt);
+            }
+        });
+        panelBarra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelBarraMousePressed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
+        btnCerrar.setBackground(new java.awt.Color(0, 51, 204));
+        btnCerrar.setFont(new java.awt.Font("OCR A Extended", 0, 30)); // NOI18N
+        btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCerrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnCerrar.setText("x");
+        btnCerrar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnCerrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCerrarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCerrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCerrarMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelBarraLayout = new javax.swing.GroupLayout(panelBarra);
+        panelBarra.setLayout(panelBarraLayout);
+        panelBarraLayout.setHorizontalGroup(
+            panelBarraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBarraLayout.createSequentialGroup()
+                .addContainerGap(1166, Short.MAX_VALUE)
+                .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 90, Short.MAX_VALUE)
+        panelBarraLayout.setVerticalGroup(
+            panelBarraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBarraLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, 200, 90));
+        jPanel1.add(panelBarra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 50));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
+        btnFav1.setBackground(new java.awt.Color(100, 50, 100, 00));
+        btnFav1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnFav1.setForeground(new java.awt.Color(255, 255, 255));
+        btnFav1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnFav1.setText("[ VACIO ]");
+        btnFav1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnFav1.setOpaque(true);
+        btnFav1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFav1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFav1MouseExited(evt);
+            }
+        });
+        jPanel1.add(btnFav1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 190, 46));
+
+        btnAcerca.setBackground(new java.awt.Color(100, 50, 100, 00));
+        btnAcerca.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAcerca.setForeground(new java.awt.Color(255, 255, 255));
+        btnAcerca.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnAcerca.setText("ACERCA DE NOSOTROS");
+        btnAcerca.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnAcerca.setOpaque(true);
+        btnAcerca.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAcercaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAcercaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAcercaMouseExited(evt);
+            }
+        });
+        jPanel1.add(btnAcerca, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 580, 180, 40));
+
+        btnFav2.setBackground(new java.awt.Color(100, 50, 100, 00));
+        btnFav2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnFav2.setForeground(new java.awt.Color(255, 255, 255));
+        btnFav2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnFav2.setText("[ VACIO ]");
+        btnFav2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnFav2.setOpaque(true);
+        btnFav2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFav2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFav2MouseExited(evt);
+            }
+        });
+        jPanel1.add(btnFav2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 190, 46));
+
+        btnFav3.setBackground(new java.awt.Color(100, 50, 100, 00));
+        btnFav3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnFav3.setForeground(new java.awt.Color(255, 255, 255));
+        btnFav3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnFav3.setText("[ VACIO ]");
+        btnFav3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnFav3.setOpaque(true);
+        btnFav3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFav3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFav3MouseExited(evt);
+            }
+        });
+        jPanel1.add(btnFav3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 190, 46));
+
+        btnFav4.setBackground(new java.awt.Color(100, 50, 100, 00));
+        btnFav4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnFav4.setForeground(new java.awt.Color(255, 255, 255));
+        btnFav4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnFav4.setText("[ VACIO ]");
+        btnFav4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnFav4.setOpaque(true);
+        btnFav4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFav4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFav4MouseExited(evt);
+            }
+        });
+        jPanel1.add(btnFav4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 190, 46));
+
+        btnFav5.setBackground(new java.awt.Color(100, 50, 100, 00));
+        btnFav5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnFav5.setForeground(new java.awt.Color(255, 255, 255));
+        btnFav5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnFav5.setText("[ VACIO ]");
+        btnFav5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnFav5.setOpaque(true);
+        btnFav5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFav5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFav5MouseExited(evt);
+            }
+        });
+        jPanel1.add(btnFav5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 190, 46));
+
+        panelDezlisante.setOpaque(false);
+
+        txtIndice.setBackground(new java.awt.Color(100, 50, 100, 0));
+        txtIndice.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtIndice.setForeground(new java.awt.Color(255, 255, 255));
+        txtIndice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtIndice.setText("INDICE");
+        txtIndice.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        txtIndice.setOpaque(true);
+        txtIndice.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtIndiceMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtIndiceMouseExited(evt);
+            }
+        });
+
+        btnSimulacion.setBackground(new java.awt.Color(100, 50, 100, 0));
+        btnSimulacion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnSimulacion.setForeground(new java.awt.Color(255, 255, 255));
+        btnSimulacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnSimulacion.setText("SIMULADOR");
+        btnSimulacion.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnSimulacion.setOpaque(true);
+        btnSimulacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSimulacionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSimulacionMouseExited(evt);
+            }
+        });
+
+        btnGlosario.setBackground(new java.awt.Color(100, 50, 100, 0));
+        btnGlosario.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnGlosario.setForeground(new java.awt.Color(255, 255, 255));
+        btnGlosario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnGlosario.setText("GLOSARIO");
+        btnGlosario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnGlosario.setOpaque(true);
+        btnGlosario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGlosarioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGlosarioMouseExited(evt);
+            }
+        });
+
+        btnInicio.setBackground(new java.awt.Color(100, 50, 100, 00));
+        btnInicio.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnInicio.setForeground(new java.awt.Color(255, 255, 255));
+        btnInicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnInicio.setText("INICIO");
+        btnInicio.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnInicio.setOpaque(true);
+        btnInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnInicioMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnInicioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnInicioMouseExited(evt);
+            }
+        });
+
+        btnTemas.setBackground(new java.awt.Color(100, 50, 100, 0));
+        btnTemas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnTemas.setForeground(new java.awt.Color(255, 255, 255));
+        btnTemas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnTemas.setText("TEMAS");
+        btnTemas.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnTemas.setOpaque(true);
+        btnTemas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnTemasMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnTemasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnTemasMouseExited(evt);
+            }
+        });
+
+        btnAjustes.setBackground(new java.awt.Color(100, 50, 100, 00));
+        btnAjustes.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnAjustes.setForeground(new java.awt.Color(255, 255, 255));
+        btnAjustes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnAjustes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/kindpng_6140627 1 (2).png"))); // NOI18N
+        btnAjustes.setText("AJUSTES");
+        btnAjustes.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnAjustes.setOpaque(true);
+        btnAjustes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAjustesMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAjustesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAjustesMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelDezlisanteLayout = new javax.swing.GroupLayout(panelDezlisante);
+        panelDezlisante.setLayout(panelDezlisanteLayout);
+        panelDezlisanteLayout.setHorizontalGroup(
+            panelDezlisanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDezlisanteLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnTemas, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtIndice, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnGlosario, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSimulacion, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                .addComponent(btnAjustes, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 90, Short.MAX_VALUE)
+        panelDezlisanteLayout.setVerticalGroup(
+            panelDezlisanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDezlisanteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelDezlisanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTemas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIndice, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSimulacion, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGlosario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAjustes, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 380, 200, 90));
+        jPanel1.add(panelDezlisante, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 910, 50));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
+        panelAjustes.setBackground(new java.awt.Color(100, 50, 100, 70));
+
+        btnFav18.setBackground(new java.awt.Color(100, 50, 100, 00));
+        btnFav18.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnFav18.setForeground(new java.awt.Color(255, 255, 255));
+        btnFav18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnFav18.setText("CAMBIAR USUARIO");
+        btnFav18.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnFav18.setOpaque(true);
+        btnFav18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFav18MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFav18MouseExited(evt);
+            }
+        });
+
+        btnFav19.setBackground(new java.awt.Color(100, 50, 100, 00));
+        btnFav19.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnFav19.setForeground(new java.awt.Color(255, 255, 255));
+        btnFav19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnFav19.setText("CAMBIAR CONTRASEÑA");
+        btnFav19.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnFav19.setOpaque(true);
+        btnFav19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFav19MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFav19MouseExited(evt);
+            }
+        });
+
+        btnFav20.setBackground(new java.awt.Color(100, 50, 100, 00));
+        btnFav20.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnFav20.setForeground(new java.awt.Color(255, 255, 255));
+        btnFav20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnFav20.setText("ELIMINAR FAVORITOS");
+        btnFav20.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnFav20.setOpaque(true);
+        btnFav20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFav20MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFav20MouseExited(evt);
+            }
+        });
+
+        btnFav21.setBackground(new java.awt.Color(100, 50, 100, 00));
+        btnFav21.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnFav21.setForeground(new java.awt.Color(255, 255, 255));
+        btnFav21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnFav21.setText("ELIMINAR PUNTUACIONES");
+        btnFav21.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnFav21.setOpaque(true);
+        btnFav21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFav21MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFav21MouseExited(evt);
+            }
+        });
+
+        btnEliminarCuenta.setBackground(new java.awt.Color(100, 50, 100, 00));
+        btnEliminarCuenta.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnEliminarCuenta.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminarCuenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnEliminarCuenta.setText("ELIMINAR CUENTA");
+        btnEliminarCuenta.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnEliminarCuenta.setOpaque(true);
+        btnEliminarCuenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEliminarCuentaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEliminarCuentaMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelAjustesLayout = new javax.swing.GroupLayout(panelAjustes);
+        panelAjustes.setLayout(panelAjustesLayout);
+        panelAjustesLayout.setHorizontalGroup(
+            panelAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAjustesLayout.createSequentialGroup()
+                .addGap(112, 112, 112)
+                .addGroup(panelAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnEliminarCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFav21, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFav20, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFav19, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFav18, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 90, Short.MAX_VALUE)
+        panelAjustesLayout.setVerticalGroup(
+            panelAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAjustesLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(btnFav18, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnFav19, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnFav20, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnFav21, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
+                .addComponent(btnEliminarCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 270, 200, 90));
+        jPanel1.add(panelAjustes, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 680, 500));
 
-        jButton3.setText("AJUSTES");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 80, 180, 40));
+        panelInicio.setBackground(new java.awt.Color(100, 50, 100, 70));
+        panelInicio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
 
-        jButton2.setText("TEMAS FAVORITOS");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 180, 40));
+        btnFav6.setBackground(new java.awt.Color(100, 50, 100, 00));
+        btnFav6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnFav6.setForeground(new java.awt.Color(255, 255, 255));
+        btnFav6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnFav6.setText("[ VACIO ]");
+        btnFav6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnFav6.setOpaque(true);
+        btnFav6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFav6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFav6MouseExited(evt);
+            }
+        });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/fdf.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        btnFav7.setBackground(new java.awt.Color(100, 50, 100, 00));
+        btnFav7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnFav7.setForeground(new java.awt.Color(255, 255, 255));
+        btnFav7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnFav7.setText("[ VACIO ]");
+        btnFav7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnFav7.setOpaque(true);
+        btnFav7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFav7MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFav7MouseExited(evt);
+            }
+        });
+
+        btnFav8.setBackground(new java.awt.Color(100, 50, 100, 00));
+        btnFav8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnFav8.setForeground(new java.awt.Color(255, 255, 255));
+        btnFav8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnFav8.setText("[ VACIO ]");
+        btnFav8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnFav8.setOpaque(true);
+        btnFav8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFav8MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFav8MouseExited(evt);
+            }
+        });
+
+        btnFav9.setBackground(new java.awt.Color(100, 50, 100, 00));
+        btnFav9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnFav9.setForeground(new java.awt.Color(255, 255, 255));
+        btnFav9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnFav9.setText("[ VACIO ]");
+        btnFav9.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnFav9.setOpaque(true);
+        btnFav9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFav9MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFav9MouseExited(evt);
+            }
+        });
+
+        btnFav10.setBackground(new java.awt.Color(100, 50, 100, 00));
+        btnFav10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnFav10.setForeground(new java.awt.Color(255, 255, 255));
+        btnFav10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnFav10.setText("[ VACIO ]");
+        btnFav10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnFav10.setOpaque(true);
+        btnFav10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFav10MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFav10MouseExited(evt);
+            }
+        });
+
+        btnFav11.setBackground(new java.awt.Color(100, 50, 100, 00));
+        btnFav11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnFav11.setForeground(new java.awt.Color(255, 255, 255));
+        btnFav11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnFav11.setText("[ VACIO ]");
+        btnFav11.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnFav11.setOpaque(true);
+        btnFav11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFav11MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFav11MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelInicioLayout = new javax.swing.GroupLayout(panelInicio);
+        panelInicio.setLayout(panelInicioLayout);
+        panelInicioLayout.setHorizontalGroup(
+            panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelInicioLayout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelInicioLayout.createSequentialGroup()
+                        .addComponent(btnFav10, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnFav11, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelInicioLayout.createSequentialGroup()
+                            .addComponent(btnFav8, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnFav9, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelInicioLayout.createSequentialGroup()
+                            .addComponent(btnFav6, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnFav7, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(80, Short.MAX_VALUE))
+        );
+        panelInicioLayout.setVerticalGroup(
+            panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInicioLayout.createSequentialGroup()
+                .addContainerGap(88, Short.MAX_VALUE)
+                .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnFav6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFav7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnFav8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFav9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnFav10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFav11, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(84, 84, 84))
+        );
+
+        jPanel1.add(panelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 680, 500));
+
+        TituloUsuario3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        TituloUsuario3.setForeground(new java.awt.Color(255, 255, 255));
+        TituloUsuario3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TituloUsuario3.setText("USUARIO :");
+        jPanel1.add(TituloUsuario3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 180, 20));
+
+        TituloUsuario4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        TituloUsuario4.setForeground(new java.awt.Color(255, 255, 255));
+        TituloUsuario4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TituloUsuario4.setText("GRUPO 06");
+        jPanel1.add(TituloUsuario4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 650, 230, 20));
+
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/fdf.png"))); // NOI18N
+        Fondo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        jPanel1.add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        javax.swing.GroupLayout PanelTemasLayout = new javax.swing.GroupLayout(PanelTemas);
+        PanelTemas.setLayout(PanelTemasLayout);
+        PanelTemasLayout.setHorizontalGroup(
+            PanelTemasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 680, Short.MAX_VALUE)
+        );
+        PanelTemasLayout.setVerticalGroup(
+            PanelTemasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 500, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(PanelTemas, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 680, 500));
+
+        javax.swing.GroupLayout PanelIndiceLayout = new javax.swing.GroupLayout(PanelIndice);
+        PanelIndice.setLayout(PanelIndiceLayout);
+        PanelIndiceLayout.setHorizontalGroup(
+            PanelIndiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 680, Short.MAX_VALUE)
+        );
+        PanelIndiceLayout.setVerticalGroup(
+            PanelIndiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 500, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(PanelIndice, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 680, 500));
+
+        javax.swing.GroupLayout PanelGlosarioLayout = new javax.swing.GroupLayout(PanelGlosario);
+        PanelGlosario.setLayout(PanelGlosarioLayout);
+        PanelGlosarioLayout.setHorizontalGroup(
+            PanelGlosarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 680, Short.MAX_VALUE)
+        );
+        PanelGlosarioLayout.setVerticalGroup(
+            PanelGlosarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 500, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(PanelGlosario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 680, 500));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,20 +753,306 @@ public class VENT_PRINCIPAL extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseClicked
+        //Cerramos el proceso
+        System.exit(0);
+
+    }//GEN-LAST:event_btnCerrarMouseClicked
+
+    private void btnCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseEntered
+        // Entra al panel boton
+        btnCerrar.setOpaque(true);
+        repaint();
+    }//GEN-LAST:event_btnCerrarMouseEntered
+
+    private void btnCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseExited
+        // Sale al panel boton
+        btnCerrar.setOpaque(false);
+        repaint();
+    }//GEN-LAST:event_btnCerrarMouseExited
+
+    private void panelBarraMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBarraMouseDragged
+        // Mover ventana
+        int Xmouse, Ymouse;
+
+        Xmouse = evt.getXOnScreen();
+        Ymouse = evt.getYOnScreen();
+
+        this.setLocation(Xmouse-x,Ymouse-y);
+    }//GEN-LAST:event_panelBarraMouseDragged
+
+    private void panelBarraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBarraMousePressed
+        // TODO add your handling code here:
+
+        x = evt.getX();
+        y = evt.getY();
+    }//GEN-LAST:event_panelBarraMousePressed
+
+    private void btnInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInicioMouseEntered
+        // TODO add your handling code here:
+        Mousedentro(btnInicio);
+    }//GEN-LAST:event_btnInicioMouseEntered
+
+    private void btnInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInicioMouseExited
+        // TODO add your handling code here:
+        Mousefuera(btnInicio);
+    }//GEN-LAST:event_btnInicioMouseExited
+
+    private void btnTemasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTemasMouseEntered
+        // TODO add your handling code here:
+        Mousedentro(btnTemas);
+    }//GEN-LAST:event_btnTemasMouseEntered
+
+    private void btnTemasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTemasMouseExited
+        // TODO add your handling code here:
+        Mousefuera(btnTemas);
+    }//GEN-LAST:event_btnTemasMouseExited
+
+    private void txtIndiceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIndiceMouseEntered
+        Mousedentro(txtIndice);
+    }//GEN-LAST:event_txtIndiceMouseEntered
+
+    private void txtIndiceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIndiceMouseExited
+        Mousefuera(txtIndice);
+    }//GEN-LAST:event_txtIndiceMouseExited
+
+    private void btnGlosarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGlosarioMouseEntered
+        Mousedentro(btnGlosario);
+    }//GEN-LAST:event_btnGlosarioMouseEntered
+
+    private void btnGlosarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGlosarioMouseExited
+        Mousefuera(btnGlosario);
+    }//GEN-LAST:event_btnGlosarioMouseExited
+
+    private void btnSimulacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSimulacionMouseEntered
+        Mousedentro(btnSimulacion);
+    }//GEN-LAST:event_btnSimulacionMouseEntered
+
+    private void btnSimulacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSimulacionMouseExited
+        Mousefuera(btnSimulacion);
+    }//GEN-LAST:event_btnSimulacionMouseExited
+
+    private void btnAjustesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAjustesMouseEntered
+        Mousedentro(btnAjustes);/////////////////////////////////////////////////////////////////
+    }//GEN-LAST:event_btnAjustesMouseEntered
+
+    private void btnAjustesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAjustesMouseExited
+        Mousefuera(btnAjustes);
+    }//GEN-LAST:event_btnAjustesMouseExited
+
+    private void btnFav1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav1MouseEntered
+        Mousedentro(btnFav1);
+    }//GEN-LAST:event_btnFav1MouseEntered
+
+    private void btnFav1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav1MouseExited
+        Mousefuera(btnFav1);
+    }//GEN-LAST:event_btnFav1MouseExited
+
+    private void btnFav2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav2MouseEntered
+        Mousedentro(btnFav2);
+    }//GEN-LAST:event_btnFav2MouseEntered
+
+    private void btnFav2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav2MouseExited
+        Mousefuera(btnFav2);
+    }//GEN-LAST:event_btnFav2MouseExited
+
+    private void btnFav3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav3MouseEntered
+        Mousedentro(btnFav3);
+    }//GEN-LAST:event_btnFav3MouseEntered
+
+    private void btnFav3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav3MouseExited
+        Mousefuera(btnFav3);
+    }//GEN-LAST:event_btnFav3MouseExited
+
+    private void btnFav4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav4MouseEntered
+        Mousedentro(btnFav4);
+    }//GEN-LAST:event_btnFav4MouseEntered
+
+    private void btnFav4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav4MouseExited
+        Mousefuera(btnFav4);
+    }//GEN-LAST:event_btnFav4MouseExited
+
+    private void btnFav5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav5MouseEntered
+        Mousedentro(btnFav5);
+    }//GEN-LAST:event_btnFav5MouseEntered
+
+    private void btnFav5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav5MouseExited
+        Mousefuera(btnFav5);
+    }//GEN-LAST:event_btnFav5MouseExited
+
+    private void btnAcercaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAcercaMouseEntered
+        Mousedentro(btnAcerca);
+    }//GEN-LAST:event_btnAcercaMouseEntered
+
+    private void btnAcercaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAcercaMouseExited
+        Mousefuera(btnAcerca);
+    }//GEN-LAST:event_btnAcercaMouseExited
+
+    private void SalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalirMouseEntered
+        Mousedentro(Salir);
+    }//GEN-LAST:event_SalirMouseEntered
+
+    private void SalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalirMouseExited
+        Mousefuera(Salir);
+    }//GEN-LAST:event_SalirMouseExited
+
+    private void btnFav6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav6MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFav6MouseEntered
+
+    private void btnFav6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav6MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFav6MouseExited
+
+    private void btnFav7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav7MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFav7MouseEntered
+
+    private void btnFav7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav7MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFav7MouseExited
+
+    private void btnFav8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav8MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFav8MouseEntered
+
+    private void btnFav8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav8MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFav8MouseExited
+
+    private void btnFav9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav9MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFav9MouseEntered
+
+    private void btnFav9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav9MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFav9MouseExited
+
+    private void btnFav10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav10MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFav10MouseEntered
+
+    private void btnFav10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav10MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFav10MouseExited
+
+    private void btnFav11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav11MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFav11MouseEntered
+
+    private void btnFav11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav11MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFav11MouseExited
+
+    private void btnTemasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTemasMouseClicked
+        //Abrimos la ventana temas
+        VENT_TEMA vent = new VENT_TEMA(this);
+        Mousefuera(btnTemas);
+        this.dispose();
+    }//GEN-LAST:event_btnTemasMouseClicked
+
+    private void btnFav18MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav18MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFav18MouseEntered
+
+    private void btnFav18MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav18MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFav18MouseExited
+
+    private void btnFav19MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav19MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFav19MouseEntered
+
+    private void btnFav19MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav19MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFav19MouseExited
+
+    private void btnFav20MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav20MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFav20MouseEntered
+
+    private void btnFav20MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav20MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFav20MouseExited
+
+    private void btnFav21MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav21MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFav21MouseEntered
+
+    private void btnFav21MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFav21MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFav21MouseExited
+
+    private void btnEliminarCuentaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarCuentaMouseEntered
+        // TODO add your handling code here:
+        btnEliminarCuenta.setBackground(
+                new java.awt.Color(255, 0, 0, 100));
+    }//GEN-LAST:event_btnEliminarCuentaMouseEntered
+
+    private void btnEliminarCuentaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarCuentaMouseExited
+        // TODO add your handling code here:
+        Mousefuera(btnEliminarCuenta);
+    }//GEN-LAST:event_btnEliminarCuentaMouseExited
+
+    private void btnAjustesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAjustesMouseClicked
+        // Hacemos visible el panel de ajustes
+        panelAjustes.setVisible(true);
+        panelInicio.setVisible(false);
+    }//GEN-LAST:event_btnAjustesMouseClicked
+
+    private void btnInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInicioMouseClicked
+        //
+        panelAjustes.setVisible(false);
+        panelInicio.setVisible(true);
+    }//GEN-LAST:event_btnInicioMouseClicked
+
+    private void btnAcercaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAcercaMouseClicked
+        //Abrimos la pestaña acerca
+        VENT_ACERCA vent = new VENT_ACERCA(this);
+        this.dispose();
+    }//GEN-LAST:event_btnAcercaMouseClicked
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel Fondo;
+    private javax.swing.JPanel PanelGlosario;
+    private javax.swing.JPanel PanelIndice;
+    private javax.swing.JPanel PanelTemas;
+    private javax.swing.JLabel Salir;
+    private javax.swing.JLabel TituloFavorito1;
+    private javax.swing.JLabel TituloUsuario;
+    private javax.swing.JLabel TituloUsuario2;
+    private javax.swing.JLabel TituloUsuario3;
+    private javax.swing.JLabel TituloUsuario4;
+    private javax.swing.JLabel btnAcerca;
+    private javax.swing.JLabel btnAjustes;
+    private javax.swing.JLabel btnCerrar;
+    private javax.swing.JLabel btnEliminarCuenta;
+    private javax.swing.JLabel btnFav1;
+    private javax.swing.JLabel btnFav10;
+    private javax.swing.JLabel btnFav11;
+    private javax.swing.JLabel btnFav18;
+    private javax.swing.JLabel btnFav19;
+    private javax.swing.JLabel btnFav2;
+    private javax.swing.JLabel btnFav20;
+    private javax.swing.JLabel btnFav21;
+    private javax.swing.JLabel btnFav3;
+    private javax.swing.JLabel btnFav4;
+    private javax.swing.JLabel btnFav5;
+    private javax.swing.JLabel btnFav6;
+    private javax.swing.JLabel btnFav7;
+    private javax.swing.JLabel btnFav8;
+    private javax.swing.JLabel btnFav9;
+    private javax.swing.JLabel btnGlosario;
+    private javax.swing.JLabel btnInicio;
+    private javax.swing.JLabel btnSimulacion;
+    private javax.swing.JLabel btnTemas;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel panelAjustes;
+    private javax.swing.JPanel panelBarra;
+    private javax.swing.JPanel panelDezlisante;
+    private javax.swing.JPanel panelInicio;
+    private javax.swing.JLabel txtIndice;
     // End of variables declaration//GEN-END:variables
 }

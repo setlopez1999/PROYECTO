@@ -10,4 +10,25 @@ package Entidades;
  */
 public class Tarjeta {
     
+    String nombre;
+    String definicion;
+
+    public Tarjeta(String nombre, String definicion) {
+        this.nombre = nombre;
+        this.definicion = definicion;
+    }
+    
+    // Método para verificar la relación reflexiva
+    public boolean esIgual(Tarjeta otraTarjeta) {
+        if (this == otraTarjeta) {
+            return true;
+        }
+        return false;
+    }
+    
+    
+    
+    public void MostrarDatos(){
+        
+    }
 }
