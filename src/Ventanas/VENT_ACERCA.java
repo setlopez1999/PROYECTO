@@ -9,7 +9,7 @@ package Ventanas;
  * @author Administrador
  */
 public class VENT_ACERCA extends javax.swing.JFrame {
-
+    int x,y;
     VENT_PRINCIPAL padre;
     public VENT_ACERCA(VENT_PRINCIPAL padre) {
         initComponents();
@@ -34,13 +34,64 @@ public class VENT_ACERCA extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        panelBarra = new javax.swing.JPanel();
+        btnCerrar = new javax.swing.JLabel();
         btnRegresar = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        t = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        btnRegresar1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelBarra.setOpaque(false);
+        panelBarra.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                panelBarraMouseDragged(evt);
+            }
+        });
+        panelBarra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelBarraMousePressed(evt);
+            }
+        });
+
+        btnCerrar.setBackground(new java.awt.Color(0, 51, 204));
+        btnCerrar.setFont(new java.awt.Font("OCR A Extended", 0, 30)); // NOI18N
+        btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCerrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnCerrar.setText("x");
+        btnCerrar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnCerrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCerrarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCerrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCerrarMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelBarraLayout = new javax.swing.GroupLayout(panelBarra);
+        panelBarra.setLayout(panelBarraLayout);
+        panelBarraLayout.setHorizontalGroup(
+            panelBarraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBarraLayout.createSequentialGroup()
+                .addGap(0, 309, Short.MAX_VALUE)
+                .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        panelBarraLayout.setVerticalGroup(
+            panelBarraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(panelBarra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 30));
 
         btnRegresar.setBackground(new java.awt.Color(100, 50, 100, 00));
         btnRegresar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -61,28 +112,47 @@ public class VENT_ACERCA extends javax.swing.JFrame {
                 btnRegresarMouseExited(evt);
             }
         });
-        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 140, 40));
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 140, 40));
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("INTEGRANTES\nSet Carlos Lopez Quispe\n...\n...\n...\n\n2023");
-        jTextArea1.setToolTipText("");
-        jTextArea1.setBorder(null);
-        jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane1.setViewportView(jTextArea1);
+        t.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        t.setForeground(new java.awt.Color(255, 255, 255));
+        t.setText("ACERCA DE NOSOTROS");
+        jPanel1.add(t, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, -1));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 240, 10));
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 310, 240));
+        btnRegresar1.setBackground(new java.awt.Color(100, 50, 100, 00));
+        btnRegresar1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnRegresar1.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnRegresar1.setText("<html><center>\nINTEGRANTES<br> \n- Set Carlos Lopez Quispe<br> \n- ...<br> \n- ...<br> \n- ...<br> \n<br>\n<br> \n2023 \n</center> </html>");
+        btnRegresar1.setToolTipText("");
+        btnRegresar1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnRegresar1.setOpaque(true);
+        btnRegresar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegresar1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegresar1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegresar1MouseExited(evt);
+            }
+        });
+        jPanel1.add(btnRegresar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 240, 180));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/image 4.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 380));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -96,17 +166,69 @@ public class VENT_ACERCA extends javax.swing.JFrame {
     private void btnRegresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseEntered
         // TODO add your handling code here:
         padre.Mousedentro(btnRegresar);
+        repaint();
     }//GEN-LAST:event_btnRegresarMouseEntered
 
     private void btnRegresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseExited
         // TODO add your handling code here:
         padre.Mousefuera(btnRegresar);
+        repaint();
     }//GEN-LAST:event_btnRegresarMouseExited
 
+    private void btnCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseClicked
+        //Cerramos el proceso
+        System.exit(0);
+    }//GEN-LAST:event_btnCerrarMouseClicked
+
+    private void btnCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseEntered
+        // Entra al panel boton
+        btnCerrar.setOpaque(true);
+        repaint();
+    }//GEN-LAST:event_btnCerrarMouseEntered
+
+    private void btnCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseExited
+        // Sale al panel boton
+        btnCerrar.setOpaque(false);
+        repaint();
+    }//GEN-LAST:event_btnCerrarMouseExited
+
+    private void panelBarraMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBarraMouseDragged
+        // Mover ventana
+        int Xmouse, Ymouse;
+
+        Xmouse = evt.getXOnScreen();
+        Ymouse = evt.getYOnScreen();
+
+        this.setLocation(Xmouse-x,Ymouse-y);
+    }//GEN-LAST:event_panelBarraMouseDragged
+
+    private void panelBarraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBarraMousePressed
+        // TODO add your handling code here:
+
+        x = evt.getX();
+        y = evt.getY();
+    }//GEN-LAST:event_panelBarraMousePressed
+
+    private void btnRegresar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresar1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegresar1MouseClicked
+
+    private void btnRegresar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresar1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegresar1MouseEntered
+
+    private void btnRegresar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresar1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegresar1MouseExited
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnCerrar;
     private javax.swing.JLabel btnRegresar;
+    private javax.swing.JLabel btnRegresar1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JPanel panelBarra;
+    private javax.swing.JLabel t;
     // End of variables declaration//GEN-END:variables
 }

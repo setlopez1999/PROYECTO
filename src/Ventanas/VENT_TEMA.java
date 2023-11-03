@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Ventanas;
 
 import javax.swing.JLabel;
@@ -17,9 +13,10 @@ public class VENT_TEMA extends javax.swing.JFrame {
         initComponents();
         this.padre = padre;
         this.setVisible(true);
-        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);       
     }
-
+   
+    
     public void Salir(){
         this.dispose();
         this.padre.setVisible(true);
@@ -55,7 +52,6 @@ public class VENT_TEMA extends javax.swing.JFrame {
         bb = new javax.swing.JLabel();
         bbb = new javax.swing.JLabel();
         c = new javax.swing.JLabel();
-        cc = new javax.swing.JLabel();
         ccc = new javax.swing.JLabel();
         panelAjustes = new javax.swing.JPanel();
         btnFav7 = new javax.swing.JLabel();
@@ -113,7 +109,7 @@ public class VENT_TEMA extends javax.swing.JFrame {
         a1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         a1.setForeground(new java.awt.Color(255, 255, 255));
         a1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        a1.setText("MI EMPRESA ?");
+        a1.setText("FORMALIZAR");
         a1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 a1MouseEntered(evt);
@@ -122,13 +118,13 @@ public class VENT_TEMA extends javax.swing.JFrame {
                 a1MouseExited(evt);
             }
         });
-        panelAjustes1.add(a1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 80, 220, 46));
+        panelAjustes1.add(a1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 80, 210, 46));
 
         aa1.setBackground(new java.awt.Color(100, 50, 100, 00));
         aa1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         aa1.setForeground(new java.awt.Color(255, 255, 255));
         aa1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        aa1.setText("COMO REGISTRO");
+        aa1.setText(" REQUISITOS PARA");
         aa1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 aa1MouseEntered(evt);
@@ -137,7 +133,7 @@ public class VENT_TEMA extends javax.swing.JFrame {
                 aa1MouseExited(evt);
             }
         });
-        panelAjustes1.add(aa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 50, 230, 46));
+        panelAjustes1.add(aa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 50, 220, 46));
 
         aaa1.setBackground(new java.awt.Color(100, 50, 100, 00));
         aaa1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -163,6 +159,9 @@ public class VENT_TEMA extends javax.swing.JFrame {
         aaaa.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         aaaa.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         aaaa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aaaaMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 aaaaMouseEntered(evt);
             }
@@ -176,7 +175,7 @@ public class VENT_TEMA extends javax.swing.JFrame {
         a.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         a.setForeground(new java.awt.Color(255, 255, 255));
         a.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        a.setText("MI EMPRESA ?");
+        a.setText("DEL PERU");
         a.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 aMouseEntered(evt);
@@ -185,13 +184,13 @@ public class VENT_TEMA extends javax.swing.JFrame {
                 aMouseExited(evt);
             }
         });
-        panelAjustes1.add(a, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 220, 46));
+        panelAjustes1.add(a, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 210, 46));
 
         aa.setBackground(new java.awt.Color(100, 50, 100, 00));
         aa.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         aa.setForeground(new java.awt.Color(255, 255, 255));
         aa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        aa.setText("COMO REGISTRO");
+        aa.setText("ACTUALIDAD");
         aa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 aaMouseEntered(evt);
@@ -238,7 +237,7 @@ public class VENT_TEMA extends javax.swing.JFrame {
         b.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         b.setForeground(new java.awt.Color(255, 255, 255));
         b.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        b.setText("VENTAJAS DE     ");
+        b.setText(" INICIO A LA   ");
         b.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 bMouseEntered(evt);
@@ -247,13 +246,13 @@ public class VENT_TEMA extends javax.swing.JFrame {
                 bMouseExited(evt);
             }
         });
-        panelAjustes1.add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 230, 46));
+        panelAjustes1.add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 220, 46));
 
         bb.setBackground(new java.awt.Color(100, 50, 100, 00));
         bb.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         bb.setForeground(new java.awt.Color(255, 255, 255));
         bb.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        bb.setText("   FORMALIACION");
+        bb.setText("FORMALIDAD");
         bb.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 bbMouseEntered(evt);
@@ -262,7 +261,7 @@ public class VENT_TEMA extends javax.swing.JFrame {
                 bbMouseExited(evt);
             }
         });
-        panelAjustes1.add(bb, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 220, 46));
+        panelAjustes1.add(bb, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 250, 46));
 
         bbb.setBackground(new java.awt.Color(100, 50, 100, 00));
         bbb.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -284,7 +283,7 @@ public class VENT_TEMA extends javax.swing.JFrame {
         c.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         c.setForeground(new java.awt.Color(255, 255, 255));
         c.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        c.setText("PELIGROS DE LA");
+        c.setText("COMO TRIBUTAR");
         c.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 cMouseEntered(evt);
@@ -293,22 +292,7 @@ public class VENT_TEMA extends javax.swing.JFrame {
                 cMouseExited(evt);
             }
         });
-        panelAjustes1.add(c, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 230, 30));
-
-        cc.setBackground(new java.awt.Color(100, 50, 100, 00));
-        cc.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        cc.setForeground(new java.awt.Color(255, 255, 255));
-        cc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        cc.setText("  INFORMALIDAD  ");
-        cc.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ccMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                ccMouseExited(evt);
-            }
-        });
-        panelAjustes1.add(cc, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 230, 46));
+        panelAjustes1.add(c, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 250, 30));
 
         ccc.setBackground(new java.awt.Color(100, 50, 100, 00));
         ccc.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -327,7 +311,7 @@ public class VENT_TEMA extends javax.swing.JFrame {
         });
         panelAjustes1.add(ccc, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 324, 139));
 
-        jPanel1.add(panelAjustes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 1110, 400));
+        jPanel1.add(panelAjustes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 1110, 430));
 
         panelAjustes.setBackground(new java.awt.Color(100, 50, 100, 70));
 
@@ -387,12 +371,11 @@ public class VENT_TEMA extends javax.swing.JFrame {
                 .addGroup(panelAjustesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAjustesLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelAjustesLayout.createSequentialGroup()
                         .addGap(109, 109, 109)
-                        .addComponent(btnFav7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(btnFav7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(panelAjustes, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 1110, 110));
@@ -581,14 +564,6 @@ public class VENT_TEMA extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cMouseExited
 
-    private void ccMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ccMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ccMouseEntered
-
-    private void ccMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ccMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ccMouseExited
-
     private void aaaaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aaaaMouseEntered
         Mousedentro(aaa);
     }//GEN-LAST:event_aaaaMouseEntered
@@ -650,6 +625,12 @@ public class VENT_TEMA extends javax.swing.JFrame {
         Salir();
     }//GEN-LAST:event_btnAcercaMouseClicked
 
+    private void aaaaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aaaaMouseClicked
+        // Abrimos el primer tema  ACTIVIDAD EN EL PERU
+        VENT_TARJETA ventana = new VENT_TARJETA();
+        
+    }//GEN-LAST:event_aaaaMouseClicked
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -671,7 +652,6 @@ public class VENT_TEMA extends javax.swing.JFrame {
     private javax.swing.JLabel btnFav14;
     private javax.swing.JLabel btnFav7;
     private javax.swing.JLabel c;
-    private javax.swing.JLabel cc;
     private javax.swing.JLabel ccc;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;

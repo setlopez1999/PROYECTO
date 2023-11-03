@@ -13,8 +13,17 @@ import java.util.List;
 public class Admin extends Usuario{
     int prioridad;
     
-    public Admin(String nombre, String contraseña, String dni,int prioridad) {
+    public Admin(String nombre, String contraseña, String dni) {
         super(nombre,contraseña,dni);
+    }
+
+    public int getPrioridad() {
+        return prioridad;
+    }
+
+    public void setPrioridad(int prioridad) {
         this.prioridad = prioridad;
     }
+    
+    
 }
