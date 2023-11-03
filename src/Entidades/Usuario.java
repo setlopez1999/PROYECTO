@@ -47,5 +47,9 @@ public abstract class Usuario {
         return false;
     }
     
+    public String Mostrar(){
+        String texto = nombre+" - "+dni;
+        return texto;
+    }
     
 }

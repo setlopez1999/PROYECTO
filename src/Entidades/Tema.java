@@ -4,6 +4,7 @@
  */
 package Entidades;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,6 +23,46 @@ public class Tema {
         this.subtemas = subtemas;
         this.estado = estado;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public List<String> getTerminos() {
+        return terminos;
+    }
+
+    public void setTerminos(List<String> terminos) {
+        this.terminos = terminos;
+    }
+
+    public List<Tarjeta> getSubtemas() {
+        return subtemas;
+    }
+
+    public void setSubtemas(List<Tarjeta> subtemas) {
+        this.subtemas = subtemas;
+    }
+
+    public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     
 }

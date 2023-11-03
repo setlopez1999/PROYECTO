@@ -1,20 +1,26 @@
-
 package Ventanas;
 
+import Entidades.Admin;
+import Entidades.Casual;
 import Entidades.Usuario;
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class VENT_LOGIN extends javax.swing.JFrame {
 
-    List<Usuario> listaUsuarios;
-    Usuario usuarioLogueado;
+    List<Casual> listaUsuarios = new ArrayList<>();
+    Casual usuarioLogueado;
+    int indice;
     int x,y;
     public VENT_LOGIN() {
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
+        ojo1.setVisible(false);
+        AgregarUsuario("set","","73666628");
+        Inicializar();  
     }
 
     @SuppressWarnings("unchecked")
@@ -23,11 +29,12 @@ public class VENT_LOGIN extends javax.swing.JFrame {
 
         jToolBar1 = new javax.swing.JToolBar();
         jPanel1 = new javax.swing.JPanel();
+        lblEntrar = new javax.swing.JLabel();
+        ojo1 = new javax.swing.JLabel();
+        ojo = new javax.swing.JLabel();
         panelBarra = new javax.swing.JPanel();
         btnCerrar = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        btnEntrarr = new javax.swing.JPanel();
-        lblEntrar = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         txtContraseña = new javax.swing.JPasswordField();
         Mensaje = new javax.swing.JLabel();
@@ -46,7 +53,46 @@ public class VENT_LOGIN extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 255));
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblEntrar.setBackground(new java.awt.Color(100, 50, 100, 80));
+        lblEntrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEntrar.setForeground(new java.awt.Color(255, 255, 255));
+        lblEntrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEntrar.setText("ENTRAR");
+        lblEntrar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        lblEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEntrarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblEntrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblEntrarMouseExited(evt);
+            }
+        });
+        jPanel1.add(lblEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 330, 250, 40));
+
+        ojo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo_1.png"))); // NOI18N
+        ojo1.setText("OJO");
+        ojo1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ojo1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(ojo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 260, 30, -1));
+
+        ojo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ojo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ojo_0.png"))); // NOI18N
+        ojo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ojoMouseClicked(evt);
+            }
+        });
+        jPanel1.add(ojo, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 260, 30, 20));
 
         panelBarra.setOpaque(false);
         panelBarra.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -84,56 +130,23 @@ public class VENT_LOGIN extends javax.swing.JFrame {
         panelBarraLayout.setHorizontalGroup(
             panelBarraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBarraLayout.createSequentialGroup()
-                .addContainerGap(916, Short.MAX_VALUE)
-                .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(921, Short.MAX_VALUE)
+                .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         panelBarraLayout.setVerticalGroup(
             panelBarraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBarraLayout.createSequentialGroup()
-                .addGap(0, 10, Short.MAX_VALUE)
-                .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 2, Short.MAX_VALUE)
+                .addComponent(btnCerrar))
         );
 
-        jPanel1.add(panelBarra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 40));
+        jPanel1.add(panelBarra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 40));
 
         jLabel1.setFont(new java.awt.Font("Monospaced", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("LOGIN");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 80, -1, -1));
-
-        btnEntrarr.setBackground(new java.awt.Color(51, 102, 255));
-
-        lblEntrar.setBackground(new java.awt.Color(255, 255, 255));
-        lblEntrar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblEntrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblEntrar.setText("ENTRAR");
-        lblEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblEntrar.setOpaque(true);
-        lblEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblEntrarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblEntrarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblEntrarMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout btnEntrarrLayout = new javax.swing.GroupLayout(btnEntrarr);
-        btnEntrarr.setLayout(btnEntrarrLayout);
-        btnEntrarrLayout.setHorizontalGroup(
-            btnEntrarrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-        );
-        btnEntrarrLayout.setVerticalGroup(
-            btnEntrarrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(btnEntrarr, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 330, 250, 40));
 
         txtUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtUsuario.setBorder(null);
@@ -142,12 +155,12 @@ public class VENT_LOGIN extends javax.swing.JFrame {
 
         txtContraseña.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtContraseña.setBorder(null);
-        jPanel1.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 260, 240, -1));
+        jPanel1.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 260, 210, -1));
 
         Mensaje.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Mensaje.setForeground(new java.awt.Color(255, 255, 255));
         Mensaje.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jPanel1.add(Mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, 450, -1));
+        jPanel1.add(Mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 450, 20));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/blanco.png"))); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 250, -1, 40));
@@ -187,7 +200,8 @@ public class VENT_LOGIN extends javax.swing.JFrame {
 
         Fondo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Fondo.png"))); // NOI18N
-        jPanel1.add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -100, -1, -1));
+        Fondo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        jPanel1.add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 440));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -197,14 +211,21 @@ public class VENT_LOGIN extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+
+        getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     //Aqui recibiremos la clave y usuario y comprobaremos que este en la base de datos
-    
+    public void Inicializar(){
+        txtContraseña.setText("");
+        txtUsuario.setText("");
+        Mensaje.setText("");
+        txtUsuario.grabFocus();
+    }
     
     
     
@@ -233,8 +254,12 @@ public class VENT_LOGIN extends javax.swing.JFrame {
 
     private void lblEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseClicked
         // 
-        if(true){
+        if(txtUsuario.getText().equals(""))
+            return;
+            
+        if(ValidarUsuario()){
             //Si entramos entonces si existe el usuario
+            usuarioLogueado = listaUsuarios.get(indice);
             VENT_PRINCIPAL vent = new VENT_PRINCIPAL(usuarioLogueado,this);
             this.dispose();
         }
@@ -259,38 +284,79 @@ public class VENT_LOGIN extends javax.swing.JFrame {
 
     private void lblEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseEntered
         // 
-        lblEntrar.setOpaque(false);
-        lblEntrar.setForeground(Color.WHITE);
+        lblEntrar.setOpaque(true);
+
         repaint();
     }//GEN-LAST:event_lblEntrarMouseEntered
 
     private void lblEntrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseExited
         // TODO add your handling code here:
-        lblEntrar.setOpaque(true);
-        lblEntrar.setForeground(Color.BLACK);
+        lblEntrar.setOpaque(false);
+
         repaint();
     }//GEN-LAST:event_lblEntrarMouseExited
+
+    private void ojo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ojo1MouseClicked
+        //se ve
+        ojo.setVisible(true);
+        ojo1.setVisible(false);
+        //ahora no se ve
+        txtContraseña.setEchoChar('*');
+        repaint();
+    }//GEN-LAST:event_ojo1MouseClicked
+
+    private void ojoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ojoMouseClicked
+        // no se ve
+        ojo.setVisible(false);
+        ojo1.setVisible(true);
+        //ahora si se ve
+        txtContraseña.setEchoChar('\u0000');
+        repaint();
+    }//GEN-LAST:event_ojoMouseClicked
     
+    public void AgregarUsuario(String nombre, String contraseña, String dni){
+        //Agregamos un usaurio
+        Casual nuevoUser = new Casual(nombre,contraseña,dni);
+        listaUsuarios.add(nuevoUser);
+        
+        
+    }
     public void Salir(){
         this.dispose();
     }
+    
+    public String ExtraerPass(char[] xd){
+        String contra="";
+        //Obtenemos la contraseña
+        for(int i = 0 ; i< xd.length ;i++){
+            contra += xd[i];
+        }  
+        return contra;
+    }
+    
     public boolean ValidarUsuario(){
         int value1 = 0;
         int value2 = 0;
+        
+        //Obtenemos la el usuario
         String usuario = txtUsuario.getText();
-        String contra="";
-        char [] xd = txtContraseña.getPassword();
-        for(int i = 0 ; i< xd.length ;i++){
-            contra += xd[i];
-        }
+        
+        String contra = "";
+        
+        contra = ExtraerPass(txtContraseña.getPassword());
+        
+        //Buscamos si existe el usuario
         if (listaUsuarios != null){
             //Verificamos si el usuario existe
             for(int i = 0 ;i<listaUsuarios.size();i++){
                 Usuario usuarioActual = listaUsuarios.get(i);
-                if(usuarioActual.getNombre()== usuario){
+                
+                //Si coincide un usuario, establecemos value1 = 1
+                if(usuarioActual.getNombre().equals(usuario)){
                     value1 = 1;
                     //Verificamos la contraseña
-                    if (usuarioActual.getContraseña()== contra){
+                    if (usuarioActual.getContraseña().equals(contra)){
+                        indice = i;
                         value2 = 1;
                     }
                 }
@@ -307,13 +373,40 @@ public class VENT_LOGIN extends javax.swing.JFrame {
         return value1 == 1 && value2 == 1;
     }
 
+    public boolean ValidarDNI(String dni){
+        //Verificamos condiciones
+        // Tenga 8 digitos
+        if(dni.length()<8 || dni.equals("")){
+            return false;
+        }
+        // Contenga numeros
+        char[] dniLetras= dni.toCharArray();
+        for(int i = 0; i<8 ;i++){
+            if(!Character.isDigit(dniLetras[i])){
+                return false;
+            }
+        }
+        
+        // Que pueda contener al 0 como primer numero
+        return true;
+    }
+    
+    public boolean ValidarNombre(String nombre){
+        //verificamos que no este regsitrado
+        for(int i=0;i<listaUsuarios.size();i++){
+            if(listaUsuarios.get(indice).getNombre()== nombre){
+                return false;
+            }
+        }
+        //devuelve true si el nombre no se repite
+        return true;
+    }
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel Mensaje;
     private javax.swing.JLabel btnCerrar;
-    private javax.swing.JPanel btnEntrarr;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -324,6 +417,8 @@ public class VENT_LOGIN extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lblEntrar;
+    private javax.swing.JLabel ojo;
+    private javax.swing.JLabel ojo1;
     private javax.swing.JPanel panelBarra;
     private javax.swing.JLabel registrar;
     private javax.swing.JPasswordField txtContraseña;

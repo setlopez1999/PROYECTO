@@ -12,11 +12,11 @@ import java.util.List;
  */
 public class Casual extends Usuario{
     
-    List<Tema> temascursados;
-    
-    public Casual(String nombre, String contraseña, String dni,List<Tema> temasCursados) {
-        super(nombre,contraseña,dni);
-        this.temascursados = temasCursados;
+    List<Tema> temas_recientes;
+    List<String> favoritos;
+    String rango = "Estandar";
+    public Casual(String nombre, String contraseña, String dni) {
+        super(nombre,contraseña,dni); 
     }
     
     @Override
@@ -26,4 +26,32 @@ public class Casual extends Usuario{
         }
         return false;
     }
+    
+    @Override
+    public String Mostrar(){
+        String texto = nombre+" - "+ dni + " - " + rango;
+        return texto;
+    }
+
+    public List<Tema> getTemas_recientes() {
+        return temas_recientes;
+    }
+
+    public void setTemas_recientes(List<Tema> temas_recientes) {
+        this.temas_recientes = temas_recientes;
+    }
+
+    public List<String> getFavoritos() {
+        return favoritos;
+    }
+
+    public void setFavoritos(List<String> favoritos) {
+        this.favoritos = favoritos;
+    }
+
+    
+
+    
+    
+    
 }
