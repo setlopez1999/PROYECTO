@@ -6,6 +6,7 @@ import Entidades.Usuario;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JLabel;
 
 
 public class VENT_LOGIN extends javax.swing.JFrame {
@@ -373,16 +374,18 @@ public class VENT_LOGIN extends javax.swing.JFrame {
         return value1 == 1 && value2 == 1;
     }
 
-    public boolean ValidarDNI(String dni){
+    public boolean ValidarDNI(String dni,JLabel Mensaje){
         //Verificamos condiciones
         // Tenga 8 digitos
         if(dni.length()<8 || dni.equals("")){
+            Mensaje.setText("El dni debe tener 8 digitos");
             return false;
         }
         // Contenga numeros
         char[] dniLetras= dni.toCharArray();
         for(int i = 0; i<8 ;i++){
             if(!Character.isDigit(dniLetras[i])){
+                Mensaje.setText("Escriba un DNI valido");
                 return false;
             }
         }
@@ -391,10 +394,15 @@ public class VENT_LOGIN extends javax.swing.JFrame {
         return true;
     }
     
-    public boolean ValidarNombre(String nombre){
+    public boolean ValidarNombre(String nombre,JLabel Mensaje){
         //verificamos que no este regsitrado
+        if(nombre.equals("")){
+            Mensaje.setText("Nombre de Usuario Vacio");
+            return false;
+        }
         for(int i=0;i<listaUsuarios.size();i++){
-            if(listaUsuarios.get(indice).getNombre()== nombre){
+            if(listaUsuarios.get(indice).getNombre().equals(nombre)){
+                Mensaje.setText("Nombre de Usuario ya registrado");
                 return false;
             }
         }

@@ -7,7 +7,6 @@ package Entidades;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
-import javax.swing.JList;
 
 /**
  *
@@ -27,7 +26,6 @@ public class BIBLIOTECA {
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -35,10 +33,21 @@ public class BIBLIOTECA {
     public List<Tema> getTemas() {
         return temas;
     }
-
     public void setTemas(List<Tema> temas) {
         this.temas = temas;
     }
+    
+    public Tema getTema(int index){
+        return temas.get(index);
+    }
+    
+    public Tarjeta getTarjeta(int index_tema,int index){
+        return temas.get(index_tema).getSubtemas().get(index);
+    }
+    
+    
+    
+    
     
     
     //Creamos el indice segun la biblioteca
@@ -130,7 +139,7 @@ public class BIBLIOTECA {
         Tarjeta tarjeta3 = new Tarjeta(tarjeta3_nombre, tarjeta3_definicion);
 
         String tarjeta4_nombre = "titulo 4";
-        String tarjeta4_definicion = "parrafo 41";
+        String tarjeta4_definicion = "parrafo 4";
         Tarjeta tarjeta4 = new Tarjeta(tarjeta4_nombre, tarjeta4_definicion);
 
         //creamos la lista
@@ -172,7 +181,7 @@ public class BIBLIOTECA {
         Tarjeta tarjeta3 = new Tarjeta(tarjeta3_nombre, tarjeta3_definicion);
 
         String tarjeta4_nombre = "titulo 4";
-        String tarjeta4_definicion = "parrafo 41";
+        String tarjeta4_definicion = "parrafo 4";
         Tarjeta tarjeta4 = new Tarjeta(tarjeta4_nombre, tarjeta4_definicion);
 
         //creamos la lista
@@ -214,7 +223,7 @@ public class BIBLIOTECA {
         Tarjeta tarjeta3 = new Tarjeta(tarjeta3_nombre, tarjeta3_definicion);
 
         String tarjeta4_nombre = "titulo 4";
-        String tarjeta4_definicion = "parrafo 41";
+        String tarjeta4_definicion = "parrafo 4";
         Tarjeta tarjeta4 = new Tarjeta(tarjeta4_nombre, tarjeta4_definicion);
 
         //creamos la lista
@@ -256,7 +265,7 @@ public class BIBLIOTECA {
         Tarjeta tarjeta3 = new Tarjeta(tarjeta3_nombre, tarjeta3_definicion);
 
         String tarjeta4_nombre = "titulo 4";
-        String tarjeta4_definicion = "parrafo 41";
+        String tarjeta4_definicion = "parrafo 4";
         Tarjeta tarjeta4 = new Tarjeta(tarjeta4_nombre, tarjeta4_definicion);
 
         //creamos la lista

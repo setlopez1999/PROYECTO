@@ -30,6 +30,7 @@ public class VENT_REGISTRAR extends javax.swing.JFrame {
         btnCerrar = new javax.swing.JLabel();
         ojo = new javax.swing.JLabel();
         ojo1 = new javax.swing.JLabel();
+        MensajeUser = new javax.swing.JLabel();
         Mensaje = new javax.swing.JLabel();
         txtDNI = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -119,6 +120,15 @@ public class VENT_REGISTRAR extends javax.swing.JFrame {
             }
         });
         jPanel1.add(ojo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 130, 30, -1));
+
+        MensajeUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        MensajeUser.setForeground(new java.awt.Color(255, 255, 255));
+        MensajeUser.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jPanel1.add(MensajeUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 270, 20));
+
+        Mensaje.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Mensaje.setForeground(new java.awt.Color(255, 255, 255));
+        Mensaje.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jPanel1.add(Mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(177, 250, 410, 20));
 
         txtDNI.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -249,13 +259,17 @@ public class VENT_REGISTRAR extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseClicked
+        Mensaje.setText(""); 
+        MensajeUser.setText("");
         //agregamos el usuario a la lista de usuarios
         String nombre = txtUsuario.getText();
         String dni = txtDNI.getText();
         char[] pass = txtContraseña.getPassword();
         String contraseña = padre.ExtraerPass(pass);
         
-        if(padre.ValidarDNI(dni)&& padre.ValidarNombre(nombre)&& !contraseña.equals("")){   
+        if(padre.ValidarNombre(nombre,MensajeUser)&&
+                padre.ValidarDNI(dni,Mensaje)&& 
+                !contraseña.equals("")){   
             //creamos la cuenta
             Casual nuevaCuenta = new Casual(nombre, contraseña, dni);
             //ahora la agregamos ala lista
@@ -359,6 +373,7 @@ public class VENT_REGISTRAR extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Mensaje;
+    private javax.swing.JLabel MensajeUser;
     private javax.swing.JLabel btnCerrar;
     private javax.swing.JPanel btnEntrarr;
     private javax.swing.JPanel btnEntrarr1;

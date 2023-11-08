@@ -4,6 +4,7 @@
  */
 package Entidades;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,10 +14,11 @@ import java.util.List;
 public class Casual extends Usuario{
     
     List<Tema> temas_recientes;
-    List<String> favoritos;
+    List<String> favoritos = new ArrayList<>();
     String rango = "Estandar";
     public Casual(String nombre, String contraseña, String dni) {
         super(nombre,contraseña,dni); 
+        
     }
     
     @Override
