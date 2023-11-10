@@ -37,9 +37,6 @@ public class VENT_PRINCIPAL extends javax.swing.JFrame {
         TituloFavorito1.setText(usuarioActual.getNombre());
         mensaje_inicio.setText(usuarioActual.Mostrar());
         btnSimulacion.setVisible(false);
-        btnSlot1.setBackground(new java.awt.Color(100, 50, 100, 00));
-        btnSlot2.setBackground(new java.awt.Color(100, 50, 100, 00));
-        btnSlot3.setBackground(new java.awt.Color(100, 50, 100, 00));
         
         ActualizarFavs();
     }
@@ -93,12 +90,10 @@ public class VENT_PRINCIPAL extends javax.swing.JFrame {
         btnTemas = new javax.swing.JLabel();
         btnAjustes = new javax.swing.JLabel();
         panelInicio = new javax.swing.JPanel();
-        btnSlot1 = new javax.swing.JLabel();
-        btnSlot2 = new javax.swing.JLabel();
-        btnSlot3 = new javax.swing.JLabel();
         mensaje_inicio = new javax.swing.JLabel();
         mensaje_inicio1 = new javax.swing.JLabel();
         mensaje_inicio2 = new javax.swing.JLabel();
+        mensaje_inicio3 = new javax.swing.JLabel();
         panelAjustes = new javax.swing.JPanel();
         btnFav20 = new javax.swing.JLabel();
         btnEliminarCuenta = new javax.swing.JLabel();
@@ -164,12 +159,14 @@ public class VENT_PRINCIPAL extends javax.swing.JFrame {
             }
         });
 
-        btnCerrar.setBackground(new java.awt.Color(0, 51, 204));
+        btnCerrar.setBackground(new java.awt.Color(0,0,50,0)
+        );
         btnCerrar.setFont(new java.awt.Font("OCR A Extended", 0, 36)); // NOI18N
         btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCerrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnCerrar.setText("x");
         btnCerrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCerrar.setOpaque(true);
         btnCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCerrarMouseClicked(evt);
@@ -193,9 +190,7 @@ public class VENT_PRINCIPAL extends javax.swing.JFrame {
         );
         panelBarraLayout.setVerticalGroup(
             panelBarraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBarraLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, Short.MAX_VALUE))
+            .addComponent(btnCerrar, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
         jPanel1.add(panelBarra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 40));
@@ -449,7 +444,7 @@ public class VENT_PRINCIPAL extends javax.swing.JFrame {
                 .addComponent(btnGlosario, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSimulacion, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addComponent(btnAjustes, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
@@ -467,57 +462,9 @@ public class VENT_PRINCIPAL extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(panelDezlisante, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 910, 50));
+        jPanel1.add(panelDezlisante, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 840, 50));
 
         panelInicio.setBackground(new java.awt.Color(100, 50, 100, 70));
-
-        btnSlot1.setBackground(new java.awt.Color(100, 50, 100, 00));
-        btnSlot1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnSlot1.setForeground(new java.awt.Color(255, 255, 255));
-        btnSlot1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnSlot1.setText("[ VACIO ]");
-        btnSlot1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
-        btnSlot1.setOpaque(true);
-        btnSlot1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnSlot1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnSlot1MouseExited(evt);
-            }
-        });
-
-        btnSlot2.setBackground(new java.awt.Color(100, 50, 100, 00));
-        btnSlot2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnSlot2.setForeground(new java.awt.Color(255, 255, 255));
-        btnSlot2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnSlot2.setText("[ VACIO ]");
-        btnSlot2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
-        btnSlot2.setOpaque(true);
-        btnSlot2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnSlot2MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnSlot2MouseExited(evt);
-            }
-        });
-
-        btnSlot3.setBackground(new java.awt.Color(100, 50, 100, 00));
-        btnSlot3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnSlot3.setForeground(new java.awt.Color(255, 255, 255));
-        btnSlot3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnSlot3.setText("[ VACIO ]");
-        btnSlot3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
-        btnSlot3.setOpaque(true);
-        btnSlot3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnSlot3MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnSlot3MouseExited(evt);
-            }
-        });
 
         mensaje_inicio.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         mensaje_inicio.setForeground(new java.awt.Color(255, 255, 255));
@@ -532,44 +479,45 @@ public class VENT_PRINCIPAL extends javax.swing.JFrame {
         mensaje_inicio2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         mensaje_inicio2.setForeground(new java.awt.Color(255, 255, 255));
         mensaje_inicio2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        mensaje_inicio2.setText("SIGUE VIENDO...");
+        mensaje_inicio2.setText("Informacion rescatada de :");
+
+        mensaje_inicio3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        mensaje_inicio3.setForeground(new java.awt.Color(255, 255, 255));
+        mensaje_inicio3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        mensaje_inicio3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/SUNAT 1.png"))); // NOI18N
 
         javax.swing.GroupLayout panelInicioLayout = new javax.swing.GroupLayout(panelInicio);
         panelInicio.setLayout(panelInicioLayout);
         panelInicioLayout.setHorizontalGroup(
             panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelInicioLayout.createSequentialGroup()
-                .addGap(78, 78, 78)
                 .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mensaje_inicio2, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(mensaje_inicio1, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(mensaje_inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(panelInicioLayout.createSequentialGroup()
-                            .addComponent(btnSlot3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(268, 268, 268))
-                        .addGroup(panelInicioLayout.createSequentialGroup()
-                            .addComponent(btnSlot1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(btnSlot2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(panelInicioLayout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(mensaje_inicio1, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(mensaje_inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelInicioLayout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(mensaje_inicio3, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(84, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInicioLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(mensaje_inicio2, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(128, 128, 128))
         );
         panelInicioLayout.setVerticalGroup(
             panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInicioLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(mensaje_inicio1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mensaje_inicio1, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(mensaje_inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(118, 118, 118)
-                .addComponent(mensaje_inicio2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSlot1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSlot2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSlot3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addGap(195, 195, 195)
+                .addComponent(mensaje_inicio2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(mensaje_inicio3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
         );
 
         jPanel1.add(panelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 680, 520));
@@ -849,30 +797,6 @@ public class VENT_PRINCIPAL extends javax.swing.JFrame {
         Mousefuera(Salir);
     }//GEN-LAST:event_SalirMouseExited
 
-    private void btnSlot1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSlot1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSlot1MouseEntered
-
-    private void btnSlot1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSlot1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSlot1MouseExited
-
-    private void btnSlot2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSlot2MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSlot2MouseEntered
-
-    private void btnSlot2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSlot2MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSlot2MouseExited
-
-    private void btnSlot3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSlot3MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSlot3MouseEntered
-
-    private void btnSlot3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSlot3MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSlot3MouseExited
-
     private void btnTemasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTemasMouseClicked
         //Abrimos la ventana temas
         VENT_TEMA vent = new VENT_TEMA(this);
@@ -924,8 +848,7 @@ public class VENT_PRINCIPAL extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIndiceMouseClicked
 
     private void SalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalirMouseClicked
-        Salir();
-        login.Inicializar();
+        comand.Salir(this, login);
     }//GEN-LAST:event_SalirMouseClicked
 
     private void btnGlosarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGlosarioMouseClicked
@@ -999,14 +922,12 @@ public class VENT_PRINCIPAL extends javax.swing.JFrame {
     private javax.swing.JLabel btnGlosario;
     private javax.swing.JLabel btnInicio;
     private javax.swing.JLabel btnSimulacion;
-    private javax.swing.JLabel btnSlot1;
-    private javax.swing.JLabel btnSlot2;
-    private javax.swing.JLabel btnSlot3;
     private javax.swing.JLabel btnTemas;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel mensaje_inicio;
     private javax.swing.JLabel mensaje_inicio1;
     private javax.swing.JLabel mensaje_inicio2;
+    private javax.swing.JLabel mensaje_inicio3;
     private javax.swing.JPanel panelAjustes;
     private javax.swing.JPanel panelBarra;
     private javax.swing.JPanel panelDezlisante;

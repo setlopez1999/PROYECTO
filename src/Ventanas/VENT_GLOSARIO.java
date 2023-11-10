@@ -52,7 +52,7 @@ public class VENT_GLOSARIO extends javax.swing.JFrame {
     
     public void Salir(){
         this.dispose();
-        padre.setVisible(true);
+        VENT_PRINCIPAL ventana = new VENT_PRINCIPAL(padre.usuarioActual, padre.login);
     }
     
     @SuppressWarnings("unchecked")
@@ -60,7 +60,7 @@ public class VENT_GLOSARIO extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnAcerca = new javax.swing.JLabel();
+        btnVolver = new javax.swing.JLabel();
         tema1 = new javax.swing.JList<>();
         tema2 = new javax.swing.JList<>();
         tema3 = new javax.swing.JList<>();
@@ -78,25 +78,25 @@ public class VENT_GLOSARIO extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnAcerca.setBackground(new java.awt.Color(100, 50, 100, 00));
-        btnAcerca.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnAcerca.setForeground(new java.awt.Color(255, 255, 255));
-        btnAcerca.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnAcerca.setText("VOLVER");
-        btnAcerca.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
-        btnAcerca.setOpaque(true);
-        btnAcerca.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnVolver.setBackground(new java.awt.Color(100, 50, 100, 00));
+        btnVolver.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(255, 255, 255));
+        btnVolver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnVolver.setText("VOLVER");
+        btnVolver.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnVolver.setOpaque(true);
+        btnVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAcercaMouseClicked(evt);
+                btnVolverMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnAcercaMouseEntered(evt);
+                btnVolverMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnAcercaMouseExited(evt);
+                btnVolverMouseExited(evt);
             }
         });
-        jPanel1.add(btnAcerca, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 600, 180, 40));
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 600, 180, 40));
 
         tema1.setBackground(new java.awt.Color(100, 50, 100, 00));
         tema1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
@@ -293,18 +293,18 @@ public class VENT_GLOSARIO extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAcercaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAcercaMouseClicked
+    private void btnVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseClicked
 
         Salir();
-    }//GEN-LAST:event_btnAcercaMouseClicked
+    }//GEN-LAST:event_btnVolverMouseClicked
 
-    private void btnAcercaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAcercaMouseEntered
-        Mousedentro(btnAcerca);
-    }//GEN-LAST:event_btnAcercaMouseEntered
+    private void btnVolverMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseEntered
+        Mousedentro(btnVolver);
+    }//GEN-LAST:event_btnVolverMouseEntered
 
-    private void btnAcercaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAcercaMouseExited
-        Mousefuera(btnAcerca);
-    }//GEN-LAST:event_btnAcercaMouseExited
+    private void btnVolverMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseExited
+        Mousefuera(btnVolver);
+    }//GEN-LAST:event_btnVolverMouseExited
 
     private void tema1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tema1MouseDragged
         repaint();
@@ -392,10 +392,10 @@ public class VENT_GLOSARIO extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
-    private javax.swing.JLabel btnAcerca;
     private javax.swing.JLabel btnCerrar;
     private javax.swing.JLabel btnFav14;
     private javax.swing.JLabel btnFav7;
+    private javax.swing.JLabel btnVolver;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel panelAjustes;

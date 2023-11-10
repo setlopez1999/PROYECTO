@@ -126,12 +126,29 @@ public class BIBLIOTECA {
         terminos.add("4");
 
         //Creamos las tarjetas y los ponemos en una lista
-        String tarjeta1_nombre = "titulo 1";
-        String tarjeta1_definicion = "parrafo 1";
+        String tarjeta1_nombre = "Situacion Actual";
+        
+        //Agregar para margen → style='margin: 10px;'          despues del body
+        String tarjeta1_definicion = 
+                "<html><body style='margin: 10px;'>"
+                + "El aspecto tributario en el Perú ha tenido algunos cambios<br/> "
+                + "imprevistos en los últimos años, debidos a factores externos,<br/>"
+                + "por lo tanto, el Gobierno del Perú ha dispuesto medidas para<br/>"
+                + "contrarrestar dichos cambios, sin embargo, la mayoría de los <br/>"
+                + "especialistas y la población han llegado a la conclusión de <br/>"
+                + "que no son suficientes, como lo veremos a continuación: </body></html>";
         Tarjeta tarjeta1 = new Tarjeta(tarjeta1_nombre, tarjeta1_definicion);
 
         String tarjeta2_nombre = "titulo 2";
-        String tarjeta2_definicion = "parrafo 2";
+        String tarjeta2_definicion = 
+                "<html><body style='margin: 10px;' >"
+                + "El gobierno ha implementado medidas tributarias para mitigar <br/>"
+                + "el impacto de la crisis, como la ampliación de plazos, <br/>"
+                + "la reducción de tasas, la devolución de impuestos y <br/>"
+                + "el programa Reactiva Perú, que ofrece créditos garantizados <br/>"
+                + "por el Estado a las empresas. Sin embargo, estas medidas <br/>"
+                + "son insuficientes para reactivar la economía y generar <br/>"
+                + "una mayor recaudación.</body></html>";
         Tarjeta tarjeta2 = new Tarjeta(tarjeta2_nombre, tarjeta2_definicion);
 
         String tarjeta3_nombre = "titulo 3";

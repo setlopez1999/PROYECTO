@@ -12,7 +12,7 @@ public class VENT_REGISTRAR extends javax.swing.JFrame {
 
     VENT_LOGIN padre ;
     int x,y;
-    
+    Comandos comand = new Comandos();
     public VENT_REGISTRAR(VENT_LOGIN padre) {
         initComponents();
         this.setVisible(true);
@@ -265,7 +265,7 @@ public class VENT_REGISTRAR extends javax.swing.JFrame {
         String nombre = txtUsuario.getText();
         String dni = txtDNI.getText();
         char[] pass = txtContraseña.getPassword();
-        String contraseña = padre.ExtraerPass(pass);
+        String contraseña = comand.ExtraerPass(pass);
         
         if(padre.ValidarNombre(nombre,MensajeUser)&&
                 padre.ValidarDNI(dni,Mensaje)&& 

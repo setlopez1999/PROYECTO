@@ -1,9 +1,8 @@
 package Ventanas;
 
-import Entidades.Admin;
 import Entidades.Casual;
+import Entidades.Comandos;
 import Entidades.Usuario;
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JLabel;
@@ -11,19 +10,28 @@ import javax.swing.JLabel;
 
 public class VENT_LOGIN extends javax.swing.JFrame {
 
+    //Lista  de usuarios
     List<Casual> listaUsuarios = new ArrayList<>();
+    //Usuario enviado a la ventana principal
     Casual usuarioLogueado;
+    //Indice del usuario encontrado
     int indice;
-    int x,y;
+    
+    
     public VENT_LOGIN() {
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
+        //Inicializamos los componentes
         ojo1.setVisible(false);
         AgregarUsuario("set","","73666628");
-        Inicializar();  
+        comand.Vaciar(txtContraseña,txtUsuario,Mensaje);  
     }
 
+    //Inicializamos los comandos
+    
+    
+    Comandos comand = new Comandos();
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -57,13 +65,14 @@ public class VENT_LOGIN extends javax.swing.JFrame {
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblEntrar.setBackground(new java.awt.Color(100, 50, 100, 80));
+        lblEntrar.setBackground(new java.awt.Color(100, 50, 100, 00));
         lblEntrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblEntrar.setForeground(new java.awt.Color(255, 255, 255));
         lblEntrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEntrar.setText("ENTRAR");
         lblEntrar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         lblEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblEntrar.setOpaque(true);
         lblEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblEntrarMouseClicked(evt);
@@ -107,13 +116,13 @@ public class VENT_LOGIN extends javax.swing.JFrame {
             }
         });
 
-        btnCerrar.setBackground(new java.awt.Color(0, 51, 204));
+        btnCerrar.setBackground(new java.awt.Color(100, 50, 100, 00));
         btnCerrar.setFont(new java.awt.Font("OCR A Extended", 0, 36)); // NOI18N
         btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCerrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnCerrar.setText("x");
-        btnCerrar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         btnCerrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCerrar.setOpaque(true);
         btnCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCerrarMouseClicked(evt);
@@ -220,15 +229,7 @@ public class VENT_LOGIN extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //Aqui recibiremos la clave y usuario y comprobaremos que este en la base de datos
-    public void Inicializar(){
-        txtContraseña.setText("");
-        txtUsuario.setText("");
-        Mensaje.setText("");
-        txtUsuario.grabFocus();
-    }
-    
-    
+        
     
     private void registrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarMouseClicked
         // TODO add your handling code here:
@@ -237,20 +238,18 @@ public class VENT_LOGIN extends javax.swing.JFrame {
 
     private void btnCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseClicked
         //Cerramos el proceso
-        System.exit(0);
+        comand.TerminarProceso();
     }//GEN-LAST:event_btnCerrarMouseClicked
 
     private void btnCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseEntered
         // Entra al panel boton
-        btnCerrar.setOpaque(true);
-        repaint();
+        comand.BotonSeleccionado(btnCerrar, jPanel1);
         
     }//GEN-LAST:event_btnCerrarMouseEntered
 
     private void btnCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseExited
         // Sale al panel boton
-        btnCerrar.setOpaque(false);
-        repaint();
+        comand.BotonNoSeleccionado(btnCerrar, jPanel1);
     }//GEN-LAST:event_btnCerrarMouseExited
 
     private void lblEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseClicked
@@ -268,51 +267,34 @@ public class VENT_LOGIN extends javax.swing.JFrame {
 
     private void panelBarraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBarraMousePressed
         // TODO add your handling code here:
-        
-        x = evt.getX();
-        y = evt.getY();
+        comand.GuardamosPosMouse(evt.getX(), evt.getY());
     }//GEN-LAST:event_panelBarraMousePressed
 
     private void panelBarraMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBarraMouseDragged
         // Mover ventana
-        int Xmouse, Ymouse;
+        comand.MovemosPosVentana(
+                this, evt.getXOnScreen(), evt.getYOnScreen());
         
-        Xmouse = evt.getXOnScreen();
-        Ymouse = evt.getYOnScreen();
-        
-        this.setLocation(Xmouse-x,Ymouse-y);
     }//GEN-LAST:event_panelBarraMouseDragged
 
     private void lblEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseEntered
         // 
-        lblEntrar.setOpaque(true);
-
-        repaint();
+        comand.BotonSeleccionado(lblEntrar, jPanel1);
     }//GEN-LAST:event_lblEntrarMouseEntered
 
     private void lblEntrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseExited
         // TODO add your handling code here:
-        lblEntrar.setOpaque(false);
-
-        repaint();
+        comand.BotonNoSeleccionado(lblEntrar, jPanel1);
     }//GEN-LAST:event_lblEntrarMouseExited
 
     private void ojo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ojo1MouseClicked
         //se ve
-        ojo.setVisible(true);
-        ojo1.setVisible(false);
-        //ahora no se ve
-        txtContraseña.setEchoChar('*');
-        repaint();
+        comand.CambiarVistaPass(ojo1, ojo, txtContraseña,true);
     }//GEN-LAST:event_ojo1MouseClicked
 
     private void ojoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ojoMouseClicked
         // no se ve
-        ojo.setVisible(false);
-        ojo1.setVisible(true);
-        //ahora si se ve
-        txtContraseña.setEchoChar('\u0000');
-        repaint();
+        comand.CambiarVistaPass(ojo, ojo1, txtContraseña,false);
     }//GEN-LAST:event_ojoMouseClicked
     
     public void AgregarUsuario(String nombre, String contraseña, String dni){
@@ -321,18 +303,6 @@ public class VENT_LOGIN extends javax.swing.JFrame {
         listaUsuarios.add(nuevoUser);
         
         
-    }
-    public void Salir(){
-        this.dispose();
-    }
-    
-    public String ExtraerPass(char[] xd){
-        String contra="";
-        //Obtenemos la contraseña
-        for(int i = 0 ; i< xd.length ;i++){
-            contra += xd[i];
-        }  
-        return contra;
     }
     
     public boolean ValidarUsuario(){
@@ -344,7 +314,7 @@ public class VENT_LOGIN extends javax.swing.JFrame {
         
         String contra = "";
         
-        contra = ExtraerPass(txtContraseña.getPassword());
+        contra = comand.ExtraerPass(txtContraseña.getPassword());
         
         //Buscamos si existe el usuario
         if (listaUsuarios != null){

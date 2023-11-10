@@ -4,10 +4,13 @@ import Ventanas.VENT_PRINCIPAL;
 import Ventanas.VENT_TARJETA;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 /**
  *
@@ -77,6 +80,7 @@ public class Comandos {
         tarjetaActual.setText(
                 padre.biblioteca.getTarjeta(
                         tema, indice).getDefinicion());
+        //tarjetaActual.setBorder(BorderFactory.createEmptyBorder(50, 50, 3,3));//////////////////
         
         //guardamos los indices
         this.vent_tarjeta = padre;
@@ -183,5 +187,46 @@ public class Comandos {
         d.setText("libre");
         e.setText("libre");
         
+    }
+    
+    
+    
+    public void CambiarVistaPass(
+            JLabel ojo,JLabel ojo2,JPasswordField pass,boolean visible){
+        
+        
+        ojo.setVisible(false);
+        ojo2.setVisible(true);
+        //ahora si se ve
+        if(visible){
+            pass.setEchoChar('•');
+            return;
+        }
+        pass.setEchoChar('\u0000');
+    }
+    
+    public void Salir(JFrame cerrar_vent,JFrame abrir_vent){
+        cerrar_vent.dispose();
+        abrir_vent.setVisible(true);
+    }
+    public void Vaciar(JPasswordField txtContraseña,
+            JTextField txtUsuario,
+            JLabel Mensaje){
+        txtContraseña.setText("");
+        txtUsuario.setText("");
+        Mensaje.setText("");
+        txtUsuario.grabFocus();
+    }
+    
+    public void TerminarProceso(){
+        System.exit(0);
+    }
+    public String ExtraerPass(char[] xd){
+        String contra="";
+        //Obtenemos la contraseña
+        for(int i = 0 ; i< xd.length ;i++){
+            contra += xd[i];
+        }  
+        return contra;
     }
 }

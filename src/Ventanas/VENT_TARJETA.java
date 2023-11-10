@@ -21,7 +21,7 @@ public class VENT_TARJETA extends javax.swing.JFrame {
 
         comand.GuardarTajetaActual(temaActual,subtemaActual,tarjetaActual);
         comand.ActualizarTarjeta(this,tema, indice);
-        
+        jPanel1.repaint();
     }
     
     
@@ -95,12 +95,11 @@ public class VENT_TARJETA extends javax.swing.JFrame {
         });
         panelAjustes1.add(subtemaActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 250, -1));
 
-        tarjetaActual.setBackground(new java.awt.Color(100, 50, 100, 00));
+        tarjetaActual.setBackground(new java.awt.Color(100, 50, 100, 01));
         tarjetaActual.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         tarjetaActual.setForeground(new java.awt.Color(255, 255, 255));
-        tarjetaActual.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tarjetaActual.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         tarjetaActual.setText("<html>ACTUALIDAD <br> EN EL PERU </html>");
-        tarjetaActual.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         tarjetaActual.setOpaque(true);
         tarjetaActual.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -113,7 +112,7 @@ public class VENT_TARJETA extends javax.swing.JFrame {
                 tarjetaActualMouseExited(evt);
             }
         });
-        panelAjustes1.add(tarjetaActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 1030, 380));
+        panelAjustes1.add(tarjetaActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 1030, 380));
 
         jPanel1.add(panelAjustes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 1110, 460));
 
