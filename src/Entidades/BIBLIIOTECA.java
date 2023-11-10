@@ -4,10 +4,20 @@
  */
 package Entidades;
 
+import java.util.List;
+
 /**
  *
  * @author ESTUDIANTE
  */
 public class BIBLIIOTECA {
+    String nombre;
+    List<Tema> temas;
+
+    public BIBLIIOTECA(String nombre, List<Tema> temas) {
+        this.nombre = nombre;
+        this.temas = temas;
+    }
+    
     
 }
