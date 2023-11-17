@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Entidades;
 
 import java.util.ArrayList;
@@ -38,7 +34,6 @@ public class Casual extends Usuario{
     public List<Tema> getTemas_recientes() {
         return temas_recientes;
     }
-
     public void setTemas_recientes(List<Tema> temas_recientes) {
         this.temas_recientes = temas_recientes;
     }
@@ -46,14 +41,8 @@ public class Casual extends Usuario{
     public List<String> getFavoritos() {
         return favoritos;
     }
-
     public void setFavoritos(List<String> favoritos) {
         this.favoritos = favoritos;
     }
 
-    
-
-    
-    
-    
 }

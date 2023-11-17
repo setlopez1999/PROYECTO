@@ -15,6 +15,8 @@ public class BIBLIOTECA {
         CrearBiblioteca();
     }
 
+    
+    
     public String getNombre() {
         return nombre;
     }
@@ -36,11 +38,6 @@ public class BIBLIOTECA {
     public Tarjeta getTarjeta(int index_tema,int index){
         return temas.get(index_tema).getSubtemas().get(index);
     }
-    
-    
-    
-    
-    
     
     //Creamos el indice segun la biblioteca
     public DefaultListModel CrearIndice(){

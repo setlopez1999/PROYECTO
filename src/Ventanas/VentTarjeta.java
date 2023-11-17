@@ -8,8 +8,6 @@ public class VentTarjeta extends javax.swing.JFrame {
     
     public VentPrincipal padre;
     public BIBLIOTECA biblioteca;
-    int tema_index;
-    int tarjeta_index;
     Comandos comand = new Comandos();
     public VentTarjeta(VentPrincipal padre, int tema,int indice) {
         initComponents();

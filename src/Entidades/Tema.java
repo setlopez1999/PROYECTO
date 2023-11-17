@@ -26,7 +26,6 @@ public class Tema {
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -34,7 +33,6 @@ public class Tema {
     public List<String> getTerminos() {
         return terminos;
     }
-
     public void setTerminos(List<String> terminos) {
         this.terminos = terminos;
     }
@@ -42,7 +40,6 @@ public class Tema {
     public List<Tarjeta> getSubtemas() {
         return subtemas;
     }
-
     public void setSubtemas(List<Tarjeta> subtemas) {
         this.subtemas = subtemas;
     }
@@ -50,18 +47,8 @@ public class Tema {
     public int getEstado() {
         return estado;
     }
-
     public void setEstado(int estado) {
         this.estado = estado;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 }

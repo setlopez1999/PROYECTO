@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JLabel;
 
-
 public class VentLogin extends javax.swing.JFrame {
 
     //Lista  de usuarios
