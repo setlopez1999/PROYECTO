@@ -12,22 +12,13 @@ public class VentPrincipal extends javax.swing.JFrame {
     
     public BIBLIOTECA biblioteca = new BIBLIOTECA();
     int x,y;
-
-    public BIBLIOTECA getBiblioteca() {
-        return biblioteca;
-    }
-
-    public void setBiblioteca(BIBLIOTECA biblioteca) {
-        this.biblioteca = biblioteca;
-    }
     
     Comandos comand = new Comandos();
     
     public VentPrincipal() {
         initComponents();
     }
-    
-    public VentPrincipal(Casual usuarioActual,VentLogin login) {
+        public VentPrincipal(Casual usuarioActual,VentLogin login) {
         initComponents();
         this.usuarioActual = usuarioActual;
         this.login = login;
@@ -42,13 +33,19 @@ public class VentPrincipal extends javax.swing.JFrame {
         
         ActualizarFavs();
     }
+    
+    public BIBLIOTECA getBiblioteca() {
+        return biblioteca;
+    }
+    public void setBiblioteca(BIBLIOTECA biblioteca) {
+        this.biblioteca = biblioteca;
+    }
     public void ActualizarFavs(){
         if(usuarioActual.getFavoritos().isEmpty())
             return;
         comand.setFavoritos(usuarioActual.getFavoritos());
         comand.MostrarFavoritos(btnFav1,btnFav2,btnFav3,btnFav4,btnFav5);
-    }
-    
+    } 
     public void Salir(){
         this.login.setVisible(true);
         this.dispose();
@@ -844,7 +841,7 @@ public class VentPrincipal extends javax.swing.JFrame {
 
     private void btnAcercaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAcercaMouseClicked
         //Abrimos la pestaña acerca
-        VetnAcerca vent = new VetnAcerca(this);
+        VentAcerca vent = new VentAcerca(this);
         this.dispose();
     }//GEN-LAST:event_btnAcercaMouseClicked
 

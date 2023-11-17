@@ -57,8 +57,6 @@ public class Comandos {
         ventana.setLocation(Xmouse-x,Ymouse-y);
     }
     
-    
-    
     public void GuardarTajetaActual(
             JLabel temaActual,JLabel subtemaActual,JLabel tarjetaActual){
         this.temaActual = temaActual;
@@ -119,7 +117,6 @@ public class Comandos {
         tarjetaActual.repaint();
     }
     
-    
     public String ObtenerIndice(){
         String t = (tema_index+1) + "." +(tarjeta_index+1);
         return t;
@@ -159,13 +156,10 @@ public class Comandos {
             e.setText(favs.get(4));
     }
     
-    
     //Metodos de JFrames
     public void abrirTarjeta(VentPrincipal padre,int tema, int indice){
         VentTarjeta tarjetas = new VentTarjeta(padre,tema,indice);
     }
-    
-    
     
     public boolean abrirFavoritos(VentPrincipal padre,JLabel fav){
         if(fav.getText().equals("libre"))
@@ -177,8 +171,6 @@ public class Comandos {
                 Integer.parseInt(tema)-1, Integer.parseInt(indice)-1);
         return true;
     }
-    
-    
     
     public void borrarFav(Casual user){
         user.favoritos = new ArrayList<>();
@@ -192,8 +184,6 @@ public class Comandos {
         e.setText("libre");
         
     }
-    
-    
     
     public void CambiarVistaPass(
             JLabel ojo,JLabel ojo2,JPasswordField pass,boolean visible){

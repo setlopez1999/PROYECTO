@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Entidades;
 
 /**
@@ -17,7 +13,6 @@ public class Tarjeta {
         this.nombre = nombre;
         this.definicion = definicion;
     }
-    
     // Método para verificar la relación reflexiva
     public boolean esIgual(Tarjeta otraTarjeta) {
         if (this == otraTarjeta) {
@@ -41,14 +36,4 @@ public class Tarjeta {
     public void setDefinicion(String definicion) {
         this.definicion = definicion;
     }
-    
-    
-    
-    public void MostrarDatos(){
-        
-    }
-    
-    
-    
-    
 }
